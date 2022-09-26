@@ -8,6 +8,9 @@ from script.models import Script
 import os
 import sys
 
+def main(request):
+    return render(request, 'script/main.html')
+
 def createScript(request):
     if request.method == "GET":
         scriptForm = ScriptForm(request.POST)

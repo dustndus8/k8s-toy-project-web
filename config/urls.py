@@ -21,6 +21,7 @@ import script.views
 urlpatterns = [
     path('admin/', admin.site.urls),
 
+    path('',script.views.main),
     path('script/create',script.views.createScript),
     path('script/readGet/<int:sid>',script.views.readScriptGet),
     path('script/listGet',script.views.listGet),
