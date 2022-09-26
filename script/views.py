@@ -15,6 +15,7 @@ def createScript(request):
         return render(request, 'script/create.html',context)
     if request.method == "POST":
         scriptForm = ScriptForm(request.POST)
+
         if scriptForm.is_valid():
             script = scriptForm.save(commit=False)
             script.save()
@@ -37,6 +38,6 @@ def readScriptGet(request,sid):
     return render(request, 'script/read.html',context)
 
 def listGet(request):
-    scripts = Script.objects.all().order_by('-id')
+    scripts = Script.objects.all().order_by('id')
     context = {'scripts' : scripts}
     return render(request, 'script/list.html',context)
