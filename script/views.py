@@ -5,6 +5,8 @@ from django.shortcuts import render, redirect
 from script.forms import ScriptForm
 from script.models import Script
 
+import os
+import sys
 
 def createScript(request):
     if request.method == "GET":
@@ -28,5 +30,13 @@ def readScriptGet(request,sid):
         'script' : script
     }
 
+    # 여기서 쉘 실행
+    #os.system("쉘스크립트이름.sh")
+
+
     return render(request, 'script/read.html',context)
 
+def listGet(request):
+    scripts = Script.objects.all().order_by('-id')
+    context = {'scripts' : scripts}
+    return render(request, 'script/list.html',context)
