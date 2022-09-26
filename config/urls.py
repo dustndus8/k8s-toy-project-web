@@ -16,6 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+import script
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    path('script/create',script.views.createScript),
+    path('script/createPost',script.views.createResult),
+    path('script/list',script.views.readScriptGet),
 ]
