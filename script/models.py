@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
@@ -19,4 +20,5 @@ class Script(models.Model):
     flavor = models.CharField(max_length=40,choices=FLAVOR_CHOICES, default='x1.small')
     image = models.CharField(max_length=40,choices=IMAGE_CHOICES,default='ubuntu')
     worker = models.IntegerField(default=0)
+    writer = models.ForeignKey(User,on_delete=models.CASCADE)
     create_date = models.DateTimeField(auto_now_add=True)

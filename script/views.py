@@ -23,6 +23,7 @@ def createScript(request):
 
         if scriptForm.is_valid():
             script = scriptForm.save(commit=False)
+            script.writer = request.user
             script.save()
 
         return redirect('/script/readGet/'+str(script.id))
