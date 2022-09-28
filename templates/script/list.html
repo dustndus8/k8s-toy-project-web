@@ -6,9 +6,17 @@
 </head>
 <body>
 {% for script in scripts %}
+ {% if script.writer == request.user %}
     <h2>{{ script.id }} : <a href="readGet/{{ script.id }}"> {{ script.project_name }} </a></h2>
 <!-- scriptid에 해당하는 contents를 클릭하면 해당 id의 readGet으로 이동 -->
     {{script.create_date}} <br/>
+ {% endif %}
 {% endfor %}
+
+<a href="/">메인으로 이동</a>
+<br>
+
+
 </body>
+
 </html>
