@@ -33,12 +33,15 @@ def createScript(request):
 
 def readScriptGet(request,sid):
     script = Script.objects.get(Q(id=sid))
+    a = sid + 20
     context = {
-        'script' : script
+        'script' : script,
+        'a' : a
     }
 
-    # 여기서 쉘 실행
-    #os.system("쉘스크립트이름.sh")
+
+
+
 
 
     return render(request, 'script/read.html',context)
