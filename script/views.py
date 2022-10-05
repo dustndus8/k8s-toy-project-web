@@ -8,6 +8,7 @@ from script.models import Script
 
 import os
 import sys
+import subprocess
 
 def main(request):
     return render(request, 'script/main.html')
@@ -25,6 +26,7 @@ def createScript(request):
             script = scriptForm.save(commit=False)
             script.writer = request.user
             script.save()
+            #subprocess.call('/root/python-projects/k8s-toy-project-web/script/bashscript/start_vagrant.sh')
 
         return redirect('/script/readGet/'+str(script.id))
 
