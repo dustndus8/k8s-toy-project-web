@@ -41,14 +41,14 @@ def readScriptGet(request,sid):
         'a' : a
     }
 
-
-
-
-
-
     return render(request, 'script/read.html',context)
 
 def listGet(request):
     scripts = Script.objects.all().order_by('id')
     context = {'scripts' : scripts}
     return render(request, 'script/list.html',context)
+
+def delete(request,sid):
+    # 삭제 script 작성
+    print('delete')
+    return render(request, 'script/delete.html')

@@ -26,6 +26,7 @@ urlpatterns = [
     path('script/create',script.views.createScript),
     path('script/readGet/<int:sid>',script.views.readScriptGet),
     path('script/listGet',script.views.listGet),
+    path('script/delete/<int:sid>',script.views.delete),
 
     #path('accounts/',include('allauth.urls'))
     path('user/signup', user.views.singup),
