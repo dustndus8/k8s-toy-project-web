@@ -50,5 +50,6 @@ def listGet(request):
 
 def delete(request,sid):
     # 삭제 script 작성
+    #subprocess.Popen(['/root/python-projects/k8s-toy-project-web/script/bashscript/destroy_vagrant.sh %s' % sid],shell=True)
     print('delete')
     return render(request, 'script/delete.html')
